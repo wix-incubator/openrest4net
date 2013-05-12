@@ -53,6 +53,8 @@
     <Compile Include="com\openrest\v1_1\ClubMember.cs" />
     <Compile Include="com\openrest\v1_1\AppInfo.cs" />
     <Compile Include="com\openrest\v1_1\GetOrganizationRequest.cs" />
+    <Compile Include="com\openrest\v1_1\GetOrganizationsRequest.cs" />
+    <Compile Include="com\openrest\v1_1\Organizations.cs" />
     <Compile Include="com\openrest\v1_1\RequestJsonConvertor.cs" />
     <Compile Include="com\openrest\v1_1\GetOrganizationFullRequest.cs" />
     <Compile Include="com\openrest\v1_1\RestaurantFullInfo.cs" />
