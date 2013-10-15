@@ -22,23 +22,47 @@ namespace com.openrest.v1_1
         /** The order has been canceled. */
         public const string ORDER_STATUS_CANCELLED = "canceled";
 
-        public Order(string id, string restaurantId, IList<OrderItem> orderItems, string comment,
-            int price, Delivery delivery, Contact contact, IList<Payment> payments,
-            long created, long modified, User user, string status, string shareToken)
+        /** View the order as the restaurant. */
+        public const string ORDER_VIEW_MODE_RESTAURANT = "restaurant";
+        /** View the order as the customer. */
+        public const string ORDER_VIEW_MODE_CUSTOMER = "customer";
+        /** View the order as privately shared on social networks. */
+        public const string ORDER_VIEW_MODE_SHARE = "share";
+        /** View the order as third-party source, e.g. portal. */
+        public const string ORDER_VIEW_MODE_SOURCE = "source";
+
+        public Order(string id, IDictionary<string, string> externalIds, string restaurantId, string locale,
+            IList<OrderItem> orderItems, string comment, int price, Delivery delivery, Contact contact, IList<Payment> payments,
+            int takeoutPacks, IList<Charge> charges, long created, long received, long modified, long submitAt,
+            User user, ClubMember clubMember, string status, string shareToken, string affiliate,
+            string source, string platform, bool legacyHierarchy, IDictionary<string, string> properties, IList<LogEntry> log)
         {
             this.id = id;
+            this.externalIds = externalIds;
             this.restaurantId = restaurantId;
+            this.locale = locale;
             this.orderItems = orderItems;
             this.comment = comment;
             this.price = price;
             this.delivery = delivery;
             this.contact = contact;
             this.payments = payments;
+            this.takeoutPacks = takeoutPacks;
+            this.charges = charges;
             this.created = created;
+            this.received = received;
             this.modified = modified;
+            this.submitAt = submitAt;
             this.user = user;
+            this.clubMember = clubMember;
             this.status = status;
             this.shareToken = shareToken;
+            this.affiliate = affiliate;
+            this.source = source;
+            this.platform = platform;
+            this.legacyHierarchy = legacyHierarchy;
+            this.properties = properties;
+            this.log = log;
         }
 
         /** Empty constructor required for initialization from JSON-encoded string. */
@@ -88,8 +112,12 @@ namespace com.openrest.v1_1
         /** The order's creation timestamp. */
         public long? created;
 
+        public long? received;
+
         /** The order's last modification timestamp. */
         public long? modified;
+
+        public long? submitAt;
 
         /** The ordering user. */
         public User user;
@@ -106,13 +134,9 @@ namespace com.openrest.v1_1
         /** Affiliate-id, for orders that came through affiliate marketing. */
         public string affiliate;
 
-        /**
-         * Affiliate-specific referrer-id for performance tracking, e.g. 
-         * Facebook campaign id, iPhone application id, self-service station id.
-         * 
-         * TODO: "ref" is reserved in C#
-         */
-        //public string ref;
+        public string source;
+
+        public string platform;
 
         /**
          * Whether or not the order was submitted and should be displayed with a
@@ -122,6 +146,8 @@ namespace com.openrest.v1_1
     
         /** Change log for this order. */
         public IList<LogEntry> log = new List<LogEntry>();
+
+        public IDictionary<string, string> properties = new Dictionary<string, string>();
     
         /** The order in HTML format. */
         public String html;

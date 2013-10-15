@@ -9,13 +9,16 @@ namespace com.openrest.v1_1
 
         public string accessToken;
         public string distributorId;
+        public string chainId;
         public IList<String> restaurantIds;
-        public string userId;
+        public ClientId clientId;
         public string status;
-        //public string ref;
+        public string source;
+        public string platform;
         public long? since;
         public long? until;
-        public bool? restaurantView = false;
+        public string query;
+        public string viewMode;
         public string ordering;
 	    public IList<string> fields;
         public int? limit;
@@ -26,18 +29,23 @@ namespace com.openrest.v1_1
         {
         }
 
-        public QueryOrdersRequest(string accessToken, string distributorId, IList<String> restaurantIds, string userId,
-            string status, long? since, long? until, bool? restaurantView, string ordering, IList<string> fields, int? limit)
+        public QueryOrdersRequest(string accessToken, string distributorId, string chainId, IList<String> restaurantIds, ClientId clientId,
+            string status, string source, string platform, long? since, long? until, string query, string viewMode,
+            string ordering, IList<string> fields, int? limit)
             : base(TYPE)
         {
             this.accessToken = accessToken;
             this.distributorId = distributorId;
+            this.chainId = chainId;
             this.restaurantIds = restaurantIds;
-            this.userId = userId;
+            this.clientId = clientId;
             this.status = status;
+            this.source = source;
+            this.platform = platform;
             this.since = since;
             this.until = until;
-            this.restaurantView = restaurantView;
+            this.query = query;
+            this.viewMode = viewMode;
             this.ordering = ordering;
             this.fields = fields;
             this.limit = limit;

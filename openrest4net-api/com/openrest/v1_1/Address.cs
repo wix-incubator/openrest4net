@@ -6,9 +6,28 @@ namespace com.openrest.v1_1
 {
     public class Address
     {
-        public Address(string country, string city, string street, string number, string apt,
+        public string formatted;
+        public string country;
+        public string city;
+        public string street;
+        public string number;
+        public string apt;
+        public string floor;
+        public string entrance;
+        public string comment;
+        public LatLng latLng;
+
+        /**
+         * Two letter country code.
+         * @see http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
+         */
+        public string countryCode;
+        public string postalCode;
+
+        public Address(string formatted, string country, string city, string street, string number, string apt,
             string floor, string entrance, string comment, LatLng latLng, string countryCode, string postalCode)
         {
+            this.formatted = formatted;
             this.country = country;
             this.city = city;
             this.street = street;
@@ -44,22 +63,5 @@ namespace com.openrest.v1_1
 
             return builder.ToString();
         }
-
-        public string country;
-        public string city;
-        public string street;
-        public string number;
-        public string apt;
-        public string floor;
-        public string entrance;
-        public string comment;
-        public LatLng latLng;
-
-        /**
-         * Two letter country code.
-         * @see http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
-         */
-        public string countryCode;
-        public string postalCode;
     }
 }
