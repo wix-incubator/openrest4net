@@ -53,6 +53,7 @@
     <Compile Include="com\openrest\v1_1\Contact.cs" />
     <Compile Include="com\openrest\v1_1\ClubMember.cs" />
     <Compile Include="com\openrest\v1_1\AppInfo.cs" />
+    <Compile Include="com\openrest\v1_1\GetOrderRequest.cs" />
     <Compile Include="com\openrest\v1_1\GetOrganizationRequest.cs" />
     <Compile Include="com\openrest\v1_1\GetOrganizationsRequest.cs" />
     <Compile Include="com\openrest\v1_1\GetRolesRequest.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="com\openrest\v1_1\User.cs" />
     <Compile Include="com\openrest\v1_1\Utils.cs" />
     <Compile Include="com\openrest\v1_1\Variation.cs" />
+    <Compile Include="com\openrest\v1_1\Viewport.cs" />
     <Compile Include="com\openrest\v1_1\WeeklyTimeWindow.cs" />
     <Compile Include="com\openrest\v1_1\Order.cs" />
     <Compile Include="com\openrest\v1_1\OrderItem.cs" />
