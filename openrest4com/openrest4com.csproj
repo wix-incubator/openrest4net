@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>openrest4com</RootNamespace>
     <AssemblyName>openrest4com</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,6 +32,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <RegisterForComInterop>true</RegisterForComInterop>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -38,76 +40,76 @@
     <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="com\openrest\v1_1\CAddress.cs" />
-    <Compile Include="com\openrest\v1_1\CCategories.cs" />
-    <Compile Include="com\openrest\v1_1\CCategory.cs" />
-    <Compile Include="com\openrest\v1_1\CChain.cs" />
-    <Compile Include="com\openrest\v1_1\CCharge.cs" />
-    <Compile Include="com\openrest\v1_1\CCharges.cs" />
-    <Compile Include="com\openrest\v1_1\CContact.cs" />
-    <Compile Include="com\openrest\v1_1\CCoupon.cs" />
-    <Compile Include="com\openrest\v1_1\CCreditCard.cs" />
-    <Compile Include="com\openrest\v1_1\CDelivery.cs" />
-    <Compile Include="com\openrest\v1_1\CDistributor.cs" />
-    <Compile Include="com\openrest\v1_1\CItem.cs" />
-    <Compile Include="com\openrest\v1_1\CItems.cs" />
-    <Compile Include="com\openrest\v1_1\CLatLng.cs" />
-    <Compile Include="com\openrest\v1_1\CMenu.cs" />
-    <Compile Include="com\openrest\v1_1\CNullableInt.cs" />
-    <Compile Include="com\openrest\v1_1\COpenrestClient.cs" />
-    <Compile Include="com\openrest\v1_1\COpenrestObject.cs" />
-    <Compile Include="com\openrest\v1_1\CNullableLong.cs" />
-    <Compile Include="com\openrest\v1_1\COrder.cs" />
-    <Compile Include="com\openrest\v1_1\COrderItem.cs" />
-    <Compile Include="com\openrest\v1_1\COrderItems.cs" />
-    <Compile Include="com\openrest\v1_1\COrders.cs" />
-    <Compile Include="com\openrest\v1_1\COrganization.cs" />
-    <Compile Include="com\openrest\v1_1\CPayment.cs" />
-    <Compile Include="com\openrest\v1_1\CPayments.cs" />
-    <Compile Include="com\openrest\v1_1\CRestaurant.cs" />
-    <Compile Include="com\openrest\v1_1\CRestaurantFullInfo.cs" />
-    <Compile Include="com\openrest\v1_1\CStringMap.cs" />
-    <Compile Include="com\openrest\v1_1\CTag.cs" />
-    <Compile Include="com\openrest\v1_1\CTags.cs" />
-    <Compile Include="com\openrest\v1_1\CUser.cs" />
-    <Compile Include="com\openrest\v1_1\CVariation.cs" />
-    <Compile Include="com\openrest\v1_1\CVariations.cs" />
-    <Compile Include="com\openrest\v1_1\CVariationsChoices.cs" />
-    <Compile Include="com\openrest\v1_1\IAddress.cs" />
-    <Compile Include="com\openrest\v1_1\ICategories.cs" />
-    <Compile Include="com\openrest\v1_1\ICategory.cs" />
-    <Compile Include="com\openrest\v1_1\IChain.cs" />
-    <Compile Include="com\openrest\v1_1\ICharge.cs" />
-    <Compile Include="com\openrest\v1_1\ICharges.cs" />
-    <Compile Include="com\openrest\v1_1\IContact.cs" />
-    <Compile Include="com\openrest\v1_1\ICoupon.cs" />
-    <Compile Include="com\openrest\v1_1\ICreditCard.cs" />
-    <Compile Include="com\openrest\v1_1\IDelivery.cs" />
-    <Compile Include="com\openrest\v1_1\IDistributor.cs" />
-    <Compile Include="com\openrest\v1_1\IItem.cs" />
-    <Compile Include="com\openrest\v1_1\IItems.cs" />
-    <Compile Include="com\openrest\v1_1\ILatLng.cs" />
-    <Compile Include="com\openrest\v1_1\IMenu.cs" />
-    <Compile Include="com\openrest\v1_1\INullableInt.cs" />
-    <Compile Include="com\openrest\v1_1\INullableLong.cs" />
-    <Compile Include="com\openrest\v1_1\IOpenrestClient.cs" />
-    <Compile Include="com\openrest\v1_1\IOpenrestObject.cs" />
-    <Compile Include="com\openrest\v1_1\IOrder.cs" />
-    <Compile Include="com\openrest\v1_1\IOrderItem.cs" />
-    <Compile Include="com\openrest\v1_1\IOrderItems.cs" />
-    <Compile Include="com\openrest\v1_1\IOrders.cs" />
-    <Compile Include="com\openrest\v1_1\IOrganization.cs" />
-    <Compile Include="com\openrest\v1_1\IPayment.cs" />
-    <Compile Include="com\openrest\v1_1\IPayments.cs" />
-    <Compile Include="com\openrest\v1_1\IRestaurant.cs" />
-    <Compile Include="com\openrest\v1_1\IRestaurantFullInfo.cs" />
-    <Compile Include="com\openrest\v1_1\IStringMap.cs" />
-    <Compile Include="com\openrest\v1_1\ITag.cs" />
-    <Compile Include="com\openrest\v1_1\ITags.cs" />
-    <Compile Include="com\openrest\v1_1\IUser.cs" />
-    <Compile Include="com\openrest\v1_1\IVariation.cs" />
-    <Compile Include="com\openrest\v1_1\IVariations.cs" />
-    <Compile Include="com\openrest\v1_1\IVariationsChoices.cs" />
+    <Compile Include="com\openrest\v2_0\CAddress.cs" />
+    <Compile Include="com\openrest\v2_0\CCategories.cs" />
+    <Compile Include="com\openrest\v2_0\CCategory.cs" />
+    <Compile Include="com\openrest\v2_0\CChain.cs" />
+    <Compile Include="com\openrest\v2_0\CCharge.cs" />
+    <Compile Include="com\openrest\v2_0\CCharges.cs" />
+    <Compile Include="com\openrest\v2_0\CContact.cs" />
+    <Compile Include="com\openrest\v2_0\CCoupon.cs" />
+    <Compile Include="com\openrest\v2_0\CCreditCard.cs" />
+    <Compile Include="com\openrest\v2_0\CDelivery.cs" />
+    <Compile Include="com\openrest\v2_0\CDistributor.cs" />
+    <Compile Include="com\openrest\v2_0\CItem.cs" />
+    <Compile Include="com\openrest\v2_0\CItems.cs" />
+    <Compile Include="com\openrest\v2_0\CLatLng.cs" />
+    <Compile Include="com\openrest\v2_0\CMenu.cs" />
+    <Compile Include="com\openrest\v2_0\CNullableInt.cs" />
+    <Compile Include="com\openrest\v2_0\COpenrestClient.cs" />
+    <Compile Include="com\openrest\v2_0\COpenrestObject.cs" />
+    <Compile Include="com\openrest\v2_0\CNullableLong.cs" />
+    <Compile Include="com\openrest\v2_0\COrder.cs" />
+    <Compile Include="com\openrest\v2_0\COrderItem.cs" />
+    <Compile Include="com\openrest\v2_0\COrderItems.cs" />
+    <Compile Include="com\openrest\v2_0\COrders.cs" />
+    <Compile Include="com\openrest\v2_0\COrganization.cs" />
+    <Compile Include="com\openrest\v2_0\CPayment.cs" />
+    <Compile Include="com\openrest\v2_0\CPayments.cs" />
+    <Compile Include="com\openrest\v2_0\CRestaurant.cs" />
+    <Compile Include="com\openrest\v2_0\CRestaurantFullInfo.cs" />
+    <Compile Include="com\openrest\v2_0\CStringMap.cs" />
+    <Compile Include="com\openrest\v2_0\CTag.cs" />
+    <Compile Include="com\openrest\v2_0\CTags.cs" />
+    <Compile Include="com\openrest\v2_0\CUser.cs" />
+    <Compile Include="com\openrest\v2_0\CVariation.cs" />
+    <Compile Include="com\openrest\v2_0\CVariations.cs" />
+    <Compile Include="com\openrest\v2_0\CVariationsChoices.cs" />
+    <Compile Include="com\openrest\v2_0\IAddress.cs" />
+    <Compile Include="com\openrest\v2_0\ICategories.cs" />
+    <Compile Include="com\openrest\v2_0\ICategory.cs" />
+    <Compile Include="com\openrest\v2_0\IChain.cs" />
+    <Compile Include="com\openrest\v2_0\ICharge.cs" />
+    <Compile Include="com\openrest\v2_0\ICharges.cs" />
+    <Compile Include="com\openrest\v2_0\IContact.cs" />
+    <Compile Include="com\openrest\v2_0\ICoupon.cs" />
+    <Compile Include="com\openrest\v2_0\ICreditCard.cs" />
+    <Compile Include="com\openrest\v2_0\IDelivery.cs" />
+    <Compile Include="com\openrest\v2_0\IDistributor.cs" />
+    <Compile Include="com\openrest\v2_0\IItem.cs" />
+    <Compile Include="com\openrest\v2_0\IItems.cs" />
+    <Compile Include="com\openrest\v2_0\ILatLng.cs" />
+    <Compile Include="com\openrest\v2_0\IMenu.cs" />
+    <Compile Include="com\openrest\v2_0\INullableInt.cs" />
+    <Compile Include="com\openrest\v2_0\INullableLong.cs" />
+    <Compile Include="com\openrest\v2_0\IOpenrestClient.cs" />
+    <Compile Include="com\openrest\v2_0\IOpenrestObject.cs" />
+    <Compile Include="com\openrest\v2_0\IOrder.cs" />
+    <Compile Include="com\openrest\v2_0\IOrderItem.cs" />
+    <Compile Include="com\openrest\v2_0\IOrderItems.cs" />
+    <Compile Include="com\openrest\v2_0\IOrders.cs" />
+    <Compile Include="com\openrest\v2_0\IOrganization.cs" />
+    <Compile Include="com\openrest\v2_0\IPayment.cs" />
+    <Compile Include="com\openrest\v2_0\IPayments.cs" />
+    <Compile Include="com\openrest\v2_0\IRestaurant.cs" />
+    <Compile Include="com\openrest\v2_0\IRestaurantFullInfo.cs" />
+    <Compile Include="com\openrest\v2_0\IStringMap.cs" />
+    <Compile Include="com\openrest\v2_0\ITag.cs" />
+    <Compile Include="com\openrest\v2_0\ITags.cs" />
+    <Compile Include="com\openrest\v2_0\IUser.cs" />
+    <Compile Include="com\openrest\v2_0\IVariation.cs" />
+    <Compile Include="com\openrest\v2_0\IVariations.cs" />
+    <Compile Include="com\openrest\v2_0\IVariationsChoices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

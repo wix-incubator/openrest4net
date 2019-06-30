@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>openrest4net_api</RootNamespace>
     <AssemblyName>openrest4net-api</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
@@ -23,6 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,6 +32,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
@@ -41,68 +43,68 @@
     <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="com\openrest\v1_1\Address.cs" />
-    <Compile Include="com\openrest\v1_1\Area.cs" />
-    <Compile Include="com\openrest\v1_1\Availability.cs" />
-    <Compile Include="com\openrest\v1_1\CardInfo.cs" />
-    <Compile Include="com\openrest\v1_1\Category.cs" />
-    <Compile Include="com\openrest\v1_1\Chain.cs" />
-    <Compile Include="com\openrest\v1_1\Charge.cs" />
-    <Compile Include="com\openrest\v1_1\ClientId.cs" />
-    <Compile Include="com\openrest\v1_1\ColorScheme.cs" />
-    <Compile Include="com\openrest\v1_1\Contact.cs" />
-    <Compile Include="com\openrest\v1_1\ClubMember.cs" />
-    <Compile Include="com\openrest\v1_1\AppInfo.cs" />
-    <Compile Include="com\openrest\v1_1\GetOrderRequest.cs" />
-    <Compile Include="com\openrest\v1_1\GetOrganizationRequest.cs" />
-    <Compile Include="com\openrest\v1_1\GetOrganizationsRequest.cs" />
-    <Compile Include="com\openrest\v1_1\GetRolesRequest.cs" />
-    <Compile Include="com\openrest\v1_1\Organizations.cs" />
-    <Compile Include="com\openrest\v1_1\RequestJsonConvertor.cs" />
-    <Compile Include="com\openrest\v1_1\GetOrganizationFullRequest.cs" />
-    <Compile Include="com\openrest\v1_1\RestaurantFullInfo.cs" />
-    <Compile Include="com\openrest\v1_1\Role.cs" />
-    <Compile Include="com\openrest\v1_1\RolesResponse.cs" />
-    <Compile Include="com\openrest\v1_1\Seo.cs" />
-    <Compile Include="com\openrest\v1_1\Distributor.cs" />
-    <Compile Include="com\openrest\v1_1\LogEntry.cs" />
-    <Compile Include="com\openrest\v1_1\Coupon.cs" />
-    <Compile Include="com\openrest\v1_1\CreditCard.cs" />
-    <Compile Include="com\openrest\v1_1\Date.cs" />
-    <Compile Include="com\openrest\v1_1\DateTimeWindow.cs" />
-    <Compile Include="com\openrest\v1_1\Delivery.cs" />
-    <Compile Include="com\openrest\v1_1\DeliveryInfo.cs" />
-    <Compile Include="com\openrest\v1_1\Item.cs" />
-    <Compile Include="com\openrest\v1_1\LatLng.cs" />
-    <Compile Include="com\openrest\v1_1\Menu.cs" />
-    <Compile Include="com\openrest\v1_1\Notification.cs" />
-    <Compile Include="com\openrest\v1_1\Notifications.cs" />
-    <Compile Include="com\openrest\v1_1\OpenrestException.cs" />
-    <Compile Include="com\openrest\v1_1\OrderConfirmation.cs" />
-    <Compile Include="com\openrest\v1_1\OpenrestObject.cs" />
-    <Compile Include="com\openrest\v1_1\OpenrestObjectJsonConvertor.cs" />
-    <Compile Include="com\openrest\v1_1\Payment.cs" />
-    <Compile Include="com\openrest\v1_1\Response.cs" />
-    <Compile Include="com\openrest\v1_1\Staff.cs" />
-    <Compile Include="com\openrest\v1_1\Stats.cs" />
-    <Compile Include="com\openrest\v1_1\Status.cs" />
-    <Compile Include="com\openrest\v1_1\Portal.cs" />
-    <Compile Include="com\openrest\v1_1\Restaurant.cs" />
-    <Compile Include="com\openrest\v1_1\SubmitOrderRequest.cs" />
-    <Compile Include="com\openrest\v1_1\Tag.cs" />
-    <Compile Include="com\openrest\v1_1\User.cs" />
-    <Compile Include="com\openrest\v1_1\Utils.cs" />
-    <Compile Include="com\openrest\v1_1\Variation.cs" />
-    <Compile Include="com\openrest\v1_1\Viewport.cs" />
-    <Compile Include="com\openrest\v1_1\WeeklyTimeWindow.cs" />
-    <Compile Include="com\openrest\v1_1\Order.cs" />
-    <Compile Include="com\openrest\v1_1\OrderItem.cs" />
-    <Compile Include="com\openrest\v1_1\OrdersResponse.cs" />
-    <Compile Include="com\openrest\v1_1\QueryEmailRequest.cs" />
-    <Compile Include="com\openrest\v1_1\Organization.cs" />
-    <Compile Include="com\openrest\v1_1\QueryOrdersRequest.cs" />
-    <Compile Include="com\openrest\v1_1\Request.cs" />
-    <Compile Include="com\openrest\v1_1\SetOrderStatusRequest.cs" />
+    <Compile Include="com\openrest\v2_0\Address.cs" />
+    <Compile Include="com\openrest\v2_0\Area.cs" />
+    <Compile Include="com\openrest\v2_0\Availability.cs" />
+    <Compile Include="com\openrest\v2_0\CardInfo.cs" />
+    <Compile Include="com\openrest\v2_0\Category.cs" />
+    <Compile Include="com\openrest\v2_0\Chain.cs" />
+    <Compile Include="com\openrest\v2_0\Charge.cs" />
+    <Compile Include="com\openrest\v2_0\ClientId.cs" />
+    <Compile Include="com\openrest\v2_0\ColorScheme.cs" />
+    <Compile Include="com\openrest\v2_0\Contact.cs" />
+    <Compile Include="com\openrest\v2_0\ClubMember.cs" />
+    <Compile Include="com\openrest\v2_0\AppInfo.cs" />
+    <Compile Include="com\openrest\v2_0\GetOrderRequest.cs" />
+    <Compile Include="com\openrest\v2_0\GetOrganizationRequest.cs" />
+    <Compile Include="com\openrest\v2_0\GetOrganizationsRequest.cs" />
+    <Compile Include="com\openrest\v2_0\GetRolesRequest.cs" />
+    <Compile Include="com\openrest\v2_0\Organizations.cs" />
+    <Compile Include="com\openrest\v2_0\RequestJsonConvertor.cs" />
+    <Compile Include="com\openrest\v2_0\GetOrganizationFullRequest.cs" />
+    <Compile Include="com\openrest\v2_0\RestaurantFullInfo.cs" />
+    <Compile Include="com\openrest\v2_0\Role.cs" />
+    <Compile Include="com\openrest\v2_0\RolesResponse.cs" />
+    <Compile Include="com\openrest\v2_0\Seo.cs" />
+    <Compile Include="com\openrest\v2_0\Distributor.cs" />
+    <Compile Include="com\openrest\v2_0\LogEntry.cs" />
+    <Compile Include="com\openrest\v2_0\Coupon.cs" />
+    <Compile Include="com\openrest\v2_0\CreditCard.cs" />
+    <Compile Include="com\openrest\v2_0\Date.cs" />
+    <Compile Include="com\openrest\v2_0\DateTimeWindow.cs" />
+    <Compile Include="com\openrest\v2_0\Delivery.cs" />
+    <Compile Include="com\openrest\v2_0\DeliveryInfo.cs" />
+    <Compile Include="com\openrest\v2_0\Item.cs" />
+    <Compile Include="com\openrest\v2_0\LatLng.cs" />
+    <Compile Include="com\openrest\v2_0\Menu.cs" />
+    <Compile Include="com\openrest\v2_0\Notification.cs" />
+    <Compile Include="com\openrest\v2_0\Notifications.cs" />
+    <Compile Include="com\openrest\v2_0\OpenrestException.cs" />
+    <Compile Include="com\openrest\v2_0\OrderConfirmation.cs" />
+    <Compile Include="com\openrest\v2_0\OpenrestObject.cs" />
+    <Compile Include="com\openrest\v2_0\OpenrestObjectJsonConvertor.cs" />
+    <Compile Include="com\openrest\v2_0\Payment.cs" />
+    <Compile Include="com\openrest\v2_0\Response.cs" />
+    <Compile Include="com\openrest\v2_0\Staff.cs" />
+    <Compile Include="com\openrest\v2_0\Stats.cs" />
+    <Compile Include="com\openrest\v2_0\Status.cs" />
+    <Compile Include="com\openrest\v2_0\Portal.cs" />
+    <Compile Include="com\openrest\v2_0\Restaurant.cs" />
+    <Compile Include="com\openrest\v2_0\SubmitOrderRequest.cs" />
+    <Compile Include="com\openrest\v2_0\Tag.cs" />
+    <Compile Include="com\openrest\v2_0\User.cs" />
+    <Compile Include="com\openrest\v2_0\Utils.cs" />
+    <Compile Include="com\openrest\v2_0\Variation.cs" />
+    <Compile Include="com\openrest\v2_0\Viewport.cs" />
+    <Compile Include="com\openrest\v2_0\WeeklyTimeWindow.cs" />
+    <Compile Include="com\openrest\v2_0\Order.cs" />
+    <Compile Include="com\openrest\v2_0\OrderItem.cs" />
+    <Compile Include="com\openrest\v2_0\OrdersResponse.cs" />
+    <Compile Include="com\openrest\v2_0\QueryEmailRequest.cs" />
+    <Compile Include="com\openrest\v2_0\Organization.cs" />
+    <Compile Include="com\openrest\v2_0\QueryOrdersRequest.cs" />
+    <Compile Include="com\openrest\v2_0\Request.cs" />
+    <Compile Include="com\openrest\v2_0\SetOrderStatusRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
