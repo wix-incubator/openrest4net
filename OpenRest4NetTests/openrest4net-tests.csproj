@@ -11,14 +11,13 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.2.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.0.1" />
     <PackageReference Include="Microsoft.Web.Administration" Version="11.1.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
     <PackageReference Include="xunit" Version="2.4.0" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\openrest4com\openrest4com.csproj" />
-    <ProjectReference Include="..\openrest4net-api\openrest4net-api.csproj" />
-    <ProjectReference Include="..\openrest4net-client\openrest4net-client.csproj" />
+    <ProjectReference Include="..\WixRestApi4Net\WixRestApi4Net.csproj" />
   </ItemGroup>
 
   <ItemGroup>
