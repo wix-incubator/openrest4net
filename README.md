@@ -1,4 +1,4 @@
 openrest4net
 ============
 
-The Openrest SDK for .NET
+Wix Restaurant API SDK for .NET
