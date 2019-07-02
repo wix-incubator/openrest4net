@@ -36,7 +36,7 @@ namespace OpenRest4NetTests
         [Fact]
         public async Task TestGetFullRestData()
         {
-            var restaurantData = await _client.GetRestaurantFullInfo(_testRestId);
+            var restaurantData = await _client.GetRestaurantFullInfo();
             Assert.NotNull(restaurantData);
             Assert.Equal(restaurantData.restaurant.id, _testRestId);
         }
@@ -45,7 +45,7 @@ namespace OpenRest4NetTests
         [Fact]
         public async Task TestGetRestData()
         {
-            var restaurantData = await _client.GetRestaurantInfo(_testRestId);
+            var restaurantData = await _client.GetRestaurantInfo();
             Assert.NotNull(restaurantData);
             Assert.Equal(restaurantData.id, _testRestId);
         }
@@ -53,7 +53,7 @@ namespace OpenRest4NetTests
         [Fact]
         public async Task TestPostRestData()
         {
-            var restaurantData = await _client.GetRestaurantInfo(_testRestId);
+            var restaurantData = await _client.GetRestaurantInfo();
             Assert.NotNull(restaurantData);
             Assert.Equal(restaurantData.id, _testRestId);
             var sundayTime = restaurantData.openTimes.weekly[0];
@@ -63,7 +63,7 @@ namespace OpenRest4NetTests
             var durationMins = sundayTime.durationMins;
             var minuteOfWeek = sundayTime.minuteOfWeek;
             await _client.SaveRestaurantInfo(restaurantData);
-            restaurantData = await _client.GetRestaurantInfo(_testRestId);
+            restaurantData = await _client.GetRestaurantInfo();
             Assert.Equal(durationMins, restaurantData.openTimes.weekly[0].durationMins);
             Assert.Equal(minuteOfWeek, restaurantData.openTimes.weekly[0].minuteOfWeek);
 
