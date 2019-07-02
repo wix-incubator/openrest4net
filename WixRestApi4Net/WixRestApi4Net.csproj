@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>0.0.1.1-test</Version>
+    <Version>0.0.1.2-test</Version>
 	<InformationalVersion>This is a prerelease package</InformationalVersion>
     <Authors>Yochai Lehman</Authors>
     <Company>Say2eat</Company>

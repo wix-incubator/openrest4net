@@ -10,6 +10,8 @@ namespace wixrest.v2_0
      */
     public class Area
     {
+        
+
         public Area(IDictionary<string, string> title, IList<LatLng> polygon)
         {
             this.title = title;
@@ -25,4 +27,15 @@ namespace wixrest.v2_0
         /** The area (polygon vertices). */
         public IList<LatLng> polygon = new List<LatLng>();
     }
+
+    public struct Shape
+    {
+        public Shape(double rad)
+        {
+            radius = rad;
+        }
+        public const string SHAPE_KEY = "SHAPE";
+        public double radius;
+    }
+
 }

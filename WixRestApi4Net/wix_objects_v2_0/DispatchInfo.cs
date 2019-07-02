@@ -36,6 +36,6 @@ namespace wixrest.v2_0
         /** Whether the delivery destination is deactivated (i.e. suspended or disabled). */
         public bool? inactive = false;
 
-        public IDictionary<string, string> properties = new Dictionary<string, string>();
+        public IDictionary<string, object> properties = new Dictionary<string, object>();
     }
 }
