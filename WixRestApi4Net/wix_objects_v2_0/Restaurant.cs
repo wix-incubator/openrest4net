@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 using openrest4net_api;
 using openrest4net_api.com.openrest.v2_0;
 
 namespace wixrest.v2_0
 {
+    [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
     public class Restaurant : Organization
     {
         public const string TYPE = "restaurant";
@@ -63,6 +65,7 @@ namespace wixrest.v2_0
         /** Available payment methods. */
         public IList<string> paymentTypes = new List<string>();
     
+
         /**
          * Maps credit card networks (e.g. "visa", "amex" etc) to the information
          * required to clear cards of that network.
@@ -72,7 +75,8 @@ namespace wixrest.v2_0
          * For the complete list of credit card networks, see
          * http://code.google.com/p/creditcard/
          */
-        public IDictionary<string, CardInfo> cardInfos = new Dictionary<string, CardInfo>();
+        public CardInfo creditcardsInfo = new CardInfo();
+
 
         /**
          * Maps available payment types to minimal charge allowed per payment, e.g.

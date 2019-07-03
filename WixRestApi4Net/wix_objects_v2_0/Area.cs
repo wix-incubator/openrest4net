@@ -21,7 +21,7 @@ namespace wixrest.v2_0
         /** Empty constructor required for initialization from JSON-encoded string. */
         public Area() { }
 
-        /** The area's human-readable title in various locales. */
+        /** The area's human-readable text in various locales. */
         public IDictionary<string, string> title = new Dictionary<string, string>();
     
         /** The area (polygon vertices). */

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using WixRestApi4Net.wix_objects_v2_0;
 
 namespace wixrest.v2_0
 {
@@ -35,7 +36,7 @@ namespace wixrest.v2_0
             IList<OrderItem> orderItems, string comment, int price, Delivery delivery, Contact contact, IList<Payment> payments,
             int takeoutPacks, IList<Charge> charges, long created, long received, long modified, long submitAt,
             User user, ClubMember clubMember, string status, string shareToken, string affiliate,
-            string source, string platform, bool legacyHierarchy, IDictionary<string, string> properties, IList<LogEntry> log)
+            string source, string platform, bool legacyHierarchy, Properties properties, IList<LogEntry> log)
         {
             this.id = id;
             this.externalIds = externalIds;
@@ -147,7 +148,7 @@ namespace wixrest.v2_0
         /** Change log for this order. */
         public IList<LogEntry> log = new List<LogEntry>();
 
-        public IDictionary<string, string> properties = new Dictionary<string, string>();
+        public Properties properties = new Properties();
     
         /** The order in HTML format. */
         public String html;

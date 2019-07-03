@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace wixrest.v2_0
 {
@@ -9,6 +10,12 @@ namespace wixrest.v2_0
             this.formId = formId;
             this.active = active;
         }
+
+        public IList<string> networks = new List<string>();
+        
+        public IList<string> fields = new List<string>();
+
+        public string collectionMethod;
 
         /** Empty constructor required for initialization from JSON-encoded string. */
         public CardInfo() { }

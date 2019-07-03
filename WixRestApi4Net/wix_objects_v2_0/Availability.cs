@@ -11,11 +11,12 @@ namespace wixrest.v2_0
             this.exceptions = exceptions;
         }
 
-
-        /** Empty constructor required for initialization from JSON-encoded string. */
-        public Availability() { }
+        public Availability()
+        {
+        }
 
         public IList<WeeklyTimeWindow> weekly = new List<WeeklyTimeWindow>();
+
         public IList<DateTimeWindow> exceptions = new List<DateTimeWindow>();
     }
 }

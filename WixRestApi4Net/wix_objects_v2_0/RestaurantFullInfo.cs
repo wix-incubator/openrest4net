@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace wixrest.v2_0
 {
-    public class RestaurantFullInfo : OpenrestObject
+    public class RestaurantFullInfo : WixRestObject
     {
         public const string TYPE = "restaurant_full";
 

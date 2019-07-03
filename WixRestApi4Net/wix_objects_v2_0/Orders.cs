@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using openrest4net_api.com.openrest.v2_0;
 using wixrest.v2_0;
+using WixRestApi4Net.wix_objects_v2_0;
 
 namespace openrest4net_api
 {
@@ -13,7 +14,7 @@ namespace openrest4net_api
         public Availability availability;
         public Asap asap;
         public Future future;
-        public IDictionary<string, string> properties = new Dictionary<string, string>();
+        public Properties properties = new Properties();
     }
 
     public class Future

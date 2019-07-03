@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using WixRestApi4Net.wix_objects_v2_0;
 
 namespace wixrest.v2_0
 {
@@ -17,15 +18,6 @@ namespace wixrest.v2_0
         /** All known tag modes */
         public static readonly IList<string> ALL_TAG_MODES = new List<String> { TAG_MODE_INCLUDE, TAG_MODE_EXCLUDE };
 
-        public Tag(string id, string restaurantId, IDictionary<string, string> title, IList<string> itemIds,
-            IDictionary<string, string> properties)
-        {
-            this.id = id;
-            this.restaurantId = restaurantId;
-            this.title = title;
-            this.itemIds = itemIds;
-            this.properties = properties;
-        }
 
         /** Empty constructor required for initialization from JSON-encoded string. */
         public Tag() { }
@@ -37,7 +29,7 @@ namespace wixrest.v2_0
         public string restaurantId;
 
         /** The tag's name in various locales, e.g. "drink", "sides". */
-        public IDictionary<string, string> title = new Dictionary<string, string>();
+        public IDictionary<string, string> text = new Dictionary<string, string>();
 
         /** Item ids. */
         public IList<string> itemIds = new List<string>();
@@ -46,6 +38,6 @@ namespace wixrest.v2_0
          * Map of user-defined extended properties. Developers should use unique
          * keys, e.g. "com.googlecode.openrestext".
          */
-        public IDictionary<string, string> properties = new Dictionary<string, string>();
+        public Properties properties = new Properties();
     }
 }

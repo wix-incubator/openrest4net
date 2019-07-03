@@ -15,7 +15,7 @@ namespace wixrest.v2_0
         /** Empty constructor required for initialization from JSON-encoded string. */
         public Seo() { }
 
-        /** The HTML title. */
+        /** The HTML text. */
         public string title;
     
         /** HTML meta tags. */

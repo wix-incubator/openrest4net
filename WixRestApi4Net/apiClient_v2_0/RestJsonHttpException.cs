@@ -13,11 +13,14 @@ namespace wixrest.v2_0
         private readonly HttpStatusCode httpStatusCode;
 
         public WixHttpException(string title,
-            string Information,
+            string information,
             HttpStatusCode httpStatusCode,
-            string exceptionLink):base($"StatusCode {httpStatusCode} Error:{title}. {Information}. (see:{exceptionLink})")
+            string exceptionLink,Exception innerException = null)
+            :base($"StatusCode {httpStatusCode} " +
+                  $"Error:{title}. {information}. " +
+                  $"(see:{exceptionLink})",innerException)
         {
-            Information = Information;
+            Information = information;
             HttpStatusCode = httpStatusCode;
             HelpLink = exceptionLink;
         }

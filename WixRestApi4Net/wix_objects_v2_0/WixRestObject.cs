@@ -3,11 +3,12 @@ using System.Collections.Generic;
 
 namespace wixrest.v2_0
 {
-    public class OpenrestObject
+    public class WixRestObject
     {
         public string type;
-
-        protected OpenrestObject(string type)
+        public WixRestObject(){}
+        
+        protected WixRestObject(string type)
         {
             this.type = type;
         }

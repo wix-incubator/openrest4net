@@ -13,28 +13,31 @@ namespace wixrest.v2_0
         private const string RESTAURANT_ENDPOINT = "organizations/{0}";
         private const string ACCESS_TOKEN = "com.wix/access_token";
         private const string API_URI =   "https://{0}.wixrestaurants.com/v2/";
-           
+        private const string MENU_ENDPOINT =   RESTAURANT_ENDPOINT + "/menu";
         private const string RESTAURANT_FULL_ENDPOINT = RESTAURANT_ENDPOINT + "/full";
+
         private readonly string apiEndpoint;
         private readonly string authEndpoint;
-        private readonly string _authInstance;
         private string _accessToken = null;
         private readonly string _restaurantID;
 
-        public WixApiFaced(string restaurantID,string authInstance = null)
-        {   
+        public WixApiFaced(string restaurantID, string accessToken = null)
+        {
             apiEndpoint = string.Format(API_URI, "api");
             authEndpoint = string.Format(API_URI, "auth");
             apiClient = new WixClient(new Uri(apiEndpoint));
             authClient = new WixClient(new Uri(authEndpoint));
-             _authInstance = authInstance;
-             _restaurantID = restaurantID;
+            _accessToken = accessToken;
+            _restaurantID = restaurantID;
         }
 
-        private async Task AuthenticateAsync(string instance)
+        public bool IsAuthenticated()
         {
-            if (string.IsNullOrEmpty(_accessToken))
-            {
+            return !string.IsNullOrEmpty(_accessToken);
+        }
+
+        public async Task<string> AuthenticateAsync(string instance)
+        {
                 var data = new
                 {
                     instance
@@ -43,7 +46,7 @@ namespace wixrest.v2_0
                 var wixAuthData = await authClient
                     .Post<WixToken>(ACCESS_TOKEN, data);
                 _accessToken = wixAuthData.AccessToken;
-            }
+                return _accessToken;
         }
 
         public async Task<RestaurantFullInfo> GetRestaurantFullInfo()
@@ -62,10 +65,24 @@ namespace wixrest.v2_0
 
         public async Task<Restaurant> SaveRestaurantInfo(Restaurant restaurant)
         {
-            await AuthenticateAsync(_authInstance);
             var endpoint = string.Format(RESTAURANT_ENDPOINT,_restaurantID);
             var restaurantInfo = await apiClient.Put<Restaurant>(endpoint,restaurant,_accessToken);
             return restaurantInfo;
+        }
+
+        public async Task<Menu> GetRestaurantMenu()
+        {
+            var endpoint = string.Format(MENU_ENDPOINT,_restaurantID);
+            var menu = await apiClient.Get<Menu>(endpoint);
+            return menu;
+        }
+
+        public async Task<Menu> SaveRestaurantMenu(Menu menu)
+        {
+            var endpoint = string.Format(MENU_ENDPOINT,_restaurantID);
+            menu.modified = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+            menu = await apiClient.Put<Menu>(endpoint,menu,_accessToken);
+            return menu;
         }
     }
 }

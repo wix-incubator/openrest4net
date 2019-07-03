@@ -12,7 +12,7 @@ namespace wixrest.v2_0
 
         public override bool CanConvert(Type objectType)
         {
-            return typeof(OpenrestObject).IsAssignableFrom(objectType);
+            return typeof(WixRestObject).IsAssignableFrom(objectType);
         }
 
         public override object ReadJson(JsonReader reader, Type objectType,

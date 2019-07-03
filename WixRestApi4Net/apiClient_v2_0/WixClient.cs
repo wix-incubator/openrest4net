@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Formatting;
@@ -7,6 +8,7 @@ using System.Net.Http.Headers;
 using System.Runtime.Serialization;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace wixrest.v2_0
 {
@@ -24,40 +26,53 @@ namespace wixrest.v2_0
             restJsonClient = new RestJsonClient(settings);
         }
 
-        public async Task<T> Post<T>(string endpointUri, Object obj,string token = null)
+        public async Task<T> Post<T>(string endpointUri, Object obj, string token = null)
         {
-            try {
-                var response =  await restJsonClient.PostAsync<T>(new Uri(_baseUri,endpointUri),token, obj);
+            try
+            {
+                var response = await restJsonClient.PostAsync<T>(new Uri(_baseUri, endpointUri), token, obj);
                 await VerifyResponse(response);
-                return await response.Content.ReadAsAsync<T>(new List<MediaTypeFormatter>(){restJsonClient.Formatter});
-            } catch (WixHttpException e) {
+                return await response.Content.ReadAsAsync<T>(new List<MediaTypeFormatter>() { restJsonClient.Formatter });
+            }
+            catch (WixHttpException e)
+            {
+                Trace.WriteLine(e.ToString());
                 throw;
             }
         }
 
         public async Task<T> Put<T>(string endpointUri, object obj, string token)
         {
-            try {
-                var response =  await restJsonClient.PutAsync<T>(new Uri(_baseUri,endpointUri),token, obj);
+            try
+            {
+                var response = await restJsonClient.PutAsync<T>(new Uri(_baseUri, endpointUri), token, obj);
                 await VerifyResponse(response);
-                return await response.Content.ReadAsAsync<T>(new List<MediaTypeFormatter>(){restJsonClient.Formatter});
-            } catch (WixHttpException e) {
+                return await response.Content.ReadAsAsync<T>(new List<MediaTypeFormatter>() { restJsonClient.Formatter });
+            }
+            catch (WixHttpException e)
+            {
+                Trace.WriteLine($"api Exception. request:{JsonConvert.SerializeObject(obj)},\n error:{e}");
                 throw;
             }
         }
 
         public async Task<T> Get<T>(string endpointUri)
         {
-            try {
-                var response =  await restJsonClient.GetAsync<T>(new Uri(_baseUri,endpointUri));
+            try
+            {
+                var response = await restJsonClient.GetAsync<T>(new Uri(_baseUri, endpointUri));
                 await VerifyResponse(response);
-                return await response.Content.ReadAsAsync<T>(new List<MediaTypeFormatter>(){restJsonClient.Formatter});
-            } catch (WixHttpException e) {
+                return await response.Content.ReadAsAsync<T>(new List<MediaTypeFormatter>() { restJsonClient.Formatter });
+            }
+            catch (WixHttpException e)
+            {
+                Trace.WriteLine(e.ToString());
                 throw;
             }
         }
 
-        private static async Task VerifyResponse(HttpResponseMessage response) {
+        private static async Task VerifyResponse(HttpResponseMessage response)
+        {
             if (!response.IsSuccessStatusCode)
             {
                 try
@@ -72,28 +87,42 @@ namespace wixrest.v2_0
                             }
                         }
                     });
+
+                    //var error = errorObj.ToObject<WixError>();
+
                     throw new WixHttpException(error.title,
                         error.detail,
                         error.status, error.type);
+
+
+                }
+                catch (WixHttpException ex)
+                {
+                    throw;
                 }
                 catch (Exception ex)
                 {
-                    throw new WixHttpException("Api Error",
-                        "",
+                    
+                    var wixEx =  new WixHttpException("Api Error",
+                        await response.Content.ReadAsStringAsync(),
                         response.StatusCode,
-                        response.EnsureSuccessStatusCode().ReasonPhrase);
+                        response.EnsureSuccessStatusCode().ReasonPhrase,ex);
+                    throw wixEx;
                 }
             }
         }
 
-     
+
     }
 
-    internal class WixError
+    public class WixError
     {
         public string type { get; set; }
         public string title { get; set; }
         public HttpStatusCode status { get; set; }
         public string detail { get; set; }
     }
+
+
+  
 }

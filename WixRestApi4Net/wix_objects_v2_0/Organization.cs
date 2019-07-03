@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using WixRestApi4Net.wix_objects_v2_0;
 
 namespace wixrest.v2_0
 {
-    public class Organization : OpenrestObject
+    public class Organization : WixRestObject
     {
         protected Organization(string type) : base(type) { }
 
@@ -24,7 +25,7 @@ namespace wixrest.v2_0
         /** The organization's last modification timestamp. */
         public long? modified;
 
-        /** The organization's title in various locales. */
+        /** The organization's text in various locales. */
         public IDictionary<string, string> title = new Dictionary<string, string>();
 
         /** The organization's description or tagline in various locales. */
@@ -91,6 +92,6 @@ namespace wixrest.v2_0
          * Map of user-defined extended properties. Developers should use unique
          * keys, e.g. "com.googlecode.openrestext".
          */
-        public IDictionary<string, string> properties = new Dictionary<string, string>();
+        public Properties properties = new Properties();
     }
 }

@@ -48,7 +48,7 @@ namespace wixrest.v2_0
             this.priority = priority;
             this.code = code;
             this.tagId = tagId;
-            this.tagMode = tagMode;
+            //this.tagMode = tagMode;
             this.amountRuleType = amountRuleType;
             this.amountRule = amountRule;
             this.coupon = coupon;
@@ -87,7 +87,7 @@ namespace wixrest.v2_0
         public string tagId;
    
         /** Tag mode: inclusive or exclusive. */
-        public string tagMode = Tag.TAG_MODE_INCLUDE;
+       // public string tagMode = Tag.TAG_MODE_INCLUDE;
     
         /** Charge amount rule type. */
         public string amountRuleType = AMOUNT_RULE_TYPE_VARIABLE;

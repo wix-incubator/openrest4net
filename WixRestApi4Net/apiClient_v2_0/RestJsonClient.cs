@@ -46,8 +46,11 @@ namespace wixrest.v2_0
         {
             using (var client = new HttpClient())
             {
-                
-                client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
+                if (!string.IsNullOrEmpty(token))
+                {
+                    client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
+                }
+
                 var response = await client.PostAsync(uri, requestObj,Formatter);
                 return response;
             }   

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace wixrest.v2_0
 {
@@ -11,6 +12,7 @@ namespace wixrest.v2_0
     {
 
         /** Optional delivery area (for type = Delivery.DELIVERY_TYPE_DELIVERY). */
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public Availability availability;
     
         /** The minimum allowed order price (in "cents"). */

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using wixrest.v2_0;
+using WixRestApi4Net.wix_objects_v2_0;
 
 namespace wixrest.v2_0
 {
@@ -11,7 +12,7 @@ namespace wixrest.v2_0
      */
 
     
-    public abstract class DispatchInfo : OpenrestObject
+    public abstract class DispatchInfo : WixRestObject
     {
         protected DispatchInfo(string type) : base(type)
         {
@@ -36,6 +37,6 @@ namespace wixrest.v2_0
         /** Whether the delivery destination is deactivated (i.e. suspended or disabled). */
         public bool? inactive = false;
 
-        public IDictionary<string, object> properties = new Dictionary<string, object>();
+        public Properties properties = new Properties();
     }
 }
