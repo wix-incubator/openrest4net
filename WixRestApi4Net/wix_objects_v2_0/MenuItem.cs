@@ -10,17 +10,17 @@ namespace wixrest.v2_0
     * or a dish variation ("well done").
     * @author DL
     */
-    public class Item:MenuItem
+    public class MenuItem:MenuBaseObject
     {
 
         public Media media;
 
-        public int price;
+        public int? price;
 
         public WixText title;
-
-
-        public Properties properties = new Properties();
+        public Properties properties;
+        public List<string> labels;
+        public List<Variation> variations;
 
     }
 }

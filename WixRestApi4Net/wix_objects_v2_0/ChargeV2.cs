@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 using WixRestApi4Net.wix_objects_v2_0;
 
 namespace wixrest.v2_0
@@ -10,10 +11,16 @@ namespace wixrest.v2_0
      * 
      * @author DL
      */
-    public class ChargeV2:MenuItem
+    public class ChargeV2:MenuBaseObject
     {
-        private int price;
-        private string state;
-        private Operator @operator;
+        public int? price;
+        public string state;
+        [JsonProperty("operator") ]
+        public Operator @operator;
+    }
+
+    public class Tip : ChargeV2
+    {
+        public const string TYPE = "tip";
     }
 }

@@ -10,6 +10,12 @@ namespace wixrest.v2_0
     public class RequestJsonConvertor : JsonConverter
     {
         private const string TYPE_PROPERTY = "type";
+        private JsonSerializerSettings _settings;
+
+        public RequestJsonConvertor(JsonSerializerSettings settings)
+        {
+            _settings = settings;
+        }
 
         public override bool CanConvert(Type objectType)
         {
@@ -33,7 +39,7 @@ namespace wixrest.v2_0
 
         public override void WriteJson(JsonWriter writer, Object value, JsonSerializer serializer)
         {
-            JsonSerializer.Create(new JsonSerializerSettings()).Serialize(writer, value);
+            JsonSerializer.Create(_settings).Serialize(writer, value);
         }
 
         private static Type GetType(JObject jObject)

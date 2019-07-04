@@ -31,7 +31,7 @@ namespace wixrest.v2_0
         /** The tag's name in various locales, e.g. "drink", "sides". */
         public IDictionary<string, string> text = new Dictionary<string, string>();
 
-        /** Item ids. */
+        /** BaseObject ids. */
         public IList<string> itemIds = new List<string>();
 
         /**

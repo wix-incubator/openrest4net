@@ -19,7 +19,7 @@ namespace wixrest.v2_0
         /** Empty constructor required for initialization from JSON-encoded string. */
         public OrderItem() { }
 
-        /** Item id. */
+        /** BaseObject id. */
         public string itemId;
 
         /**

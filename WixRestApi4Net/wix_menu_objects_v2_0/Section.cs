@@ -4,17 +4,17 @@ using WixRestApi4Net.wix_objects_v2_0;
 
 namespace wixrest.v2_0
 {
-    public class Section:MenuItem
+    public class Section:MenuBaseObject
     {
 
 
         /** The item-ids in this category. */
-        public IList<string> itemIds = new List<string>();
+        public IList<string> itemIds;
 
-        public IList<Section> children = new List<Section>();
+        public IList<Section> children;
 
         /** Order priority. Higher means first in the list. */
-        public double? priority = 0.0;
+        public double? priority;
 
         public Media media;
 

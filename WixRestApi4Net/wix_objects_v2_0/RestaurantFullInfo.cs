@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace wixrest.v2_0
 {
+    [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
     public class RestaurantFullInfo : WixRestObject
     {
         public const string TYPE = "restaurant_full";
@@ -26,17 +28,9 @@ namespace wixrest.v2_0
         public IList<String> fbAdmins = new List<string>();
 
         /** Empty constructor required for initialization from JSON-encoded string. */
-        public RestaurantFullInfo() : base(TYPE) { }
 
-        public RestaurantFullInfo(Restaurant restaurant, Menu menu, IList<Charge> charges, Distributor distributor,
-            Chain chain, IList<string> fbAdmins) : base(TYPE)
+        public RestaurantFullInfo() : base(TYPE)
         {
-            this.restaurant = restaurant;
-            this.menu = menu;
-            this.charges = charges;
-            this.distributor = distributor;
-            this.chain = chain;
-            this.fbAdmins = fbAdmins;
         }
     }
 }

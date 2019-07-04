@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 using WixRestApi4Net.wix_objects_v2_0;
 
 namespace wixrest.v2_0
 {
+    [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
     public class Order
     {
         /**

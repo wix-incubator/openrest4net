@@ -20,18 +20,33 @@ namespace wixrest.v2_0
      * A client for a RESTful web-service that supports JSON representations.
      * @author DL
      */
-    class RestJsonClient
+    public class RestJsonClient
     {
-        public readonly JsonMediaTypeFormatter Formatter;
 
-
-        public RestJsonClient(JsonSerializerSettings settings)
+        static RestJsonClient()
         {
-            Formatter = new JsonMediaTypeFormatter();
-            Formatter.SerializerSettings = settings;
-            
+            var settings = new JsonSerializerSettings()
+            {
+                NullValueHandling = NullValueHandling.Ignore
+            };
+
+            Settings = new JsonSerializerSettings()
+            {
+                Converters = new List<JsonConverter>()
+                {
+                    new RestaurantObjectJsonConvertor(settings),
+                    new RequestJsonConvertor(settings)
+                },
+                NullValueHandling = NullValueHandling.Ignore
+            };
         }
 
+        public static readonly JsonSerializerSettings Settings;
+        
+        public readonly JsonMediaTypeFormatter Formatter = new JsonMediaTypeFormatter()
+        {
+            SerializerSettings = Settings
+        };
 
         public async Task<HttpResponseMessage> GetAsync<T>(Uri uri)
         {
@@ -44,6 +59,7 @@ namespace wixrest.v2_0
 
         public async Task<HttpResponseMessage> PostAsync<T>(Uri uri,string token,object requestObj)
         {
+   
             using (var client = new HttpClient())
             {
                 if (!string.IsNullOrEmpty(token))

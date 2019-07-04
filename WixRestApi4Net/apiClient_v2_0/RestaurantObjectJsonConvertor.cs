@@ -3,11 +3,19 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Runtime.Serialization.Formatters;
+using WixRestApi4Net.wix_objects_v2_0;
 
 namespace wixrest.v2_0
 {
     public class RestaurantObjectJsonConvertor : JsonConverter
     {
+        private JsonSerializerSettings _settings;
+
+        public RestaurantObjectJsonConvertor(JsonSerializerSettings settings)
+        {
+            _settings = settings;
+        }
+
         private const string TYPE_PROPERTY = "type";
 
         public override bool CanConvert(Type objectType)
@@ -30,7 +38,7 @@ namespace wixrest.v2_0
 
         public override void WriteJson(JsonWriter writer, Object value, JsonSerializer serializer)
         {
-            JsonSerializer.Create(new JsonSerializerSettings()).Serialize(writer, value);
+            JsonSerializer.Create(_settings).Serialize(writer, value);
         }
 
         private static Type GetType(JObject jObject)
@@ -57,6 +65,28 @@ namespace wixrest.v2_0
                     return typeof(DeliveryDispatchInfo);
                 case PickupDispatchInfo.TYPE:
                     return typeof(PickupDispatchInfo);
+                case And.TYPE:
+                    return typeof(And);
+                case Or.TYPE:
+                    return typeof(Or);
+                case True.TYPE:
+                    return typeof(True);
+                case False.TYPE:
+                    return typeof(False);
+                case OrderDeliveryCondition.TYPE:
+                    return typeof(OrderDeliveryCondition);
+                case Max.TYPE:
+                    return typeof(Max);
+                case Min.TYPE:
+                    return typeof(Min);
+                case SumPrices.TYPE:
+                    return typeof(SumPrices);
+                case Include.TYPE:
+                    return typeof(Include);
+                case Value.TYPE:
+                    return typeof(Value);
+                case Tip.TYPE:
+                    return typeof(Tip);
             }
 
             throw new ApplicationException(String.Format("Unknown object type: {0}", typeStr));

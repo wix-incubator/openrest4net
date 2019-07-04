@@ -19,7 +19,7 @@ namespace OpenRest4NetTests
         public async Task TestAuthentication()
         {
             await _client.AuthenticateAsync(config[AUTH_INSTANCE]);
-            Assert.True(_client.HasToken());
+            Assert.True(_client.IsAuthenticated());
         }
 
         [Fact]

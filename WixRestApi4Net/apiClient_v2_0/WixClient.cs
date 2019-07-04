@@ -16,14 +16,10 @@ namespace wixrest.v2_0
     {
         private readonly RestJsonClient restJsonClient;
         private Uri _baseUri;
-
         public WixClient(Uri uri)
         {
-            JsonSerializerSettings settings = new JsonSerializerSettings();
-            settings.Converters.Add(new RestaurantObjectJsonConvertor());
-            settings.Converters.Add(new RequestJsonConvertor());
             _baseUri = uri;
-            restJsonClient = new RestJsonClient(settings);
+            restJsonClient = new RestJsonClient();
         }
 
         public async Task<T> Post<T>(string endpointUri, Object obj, string token = null)

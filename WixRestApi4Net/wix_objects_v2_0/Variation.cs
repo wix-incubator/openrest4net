@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using WixRestApi4Net.wix_objects_v2_0;
 
 namespace wixrest.v2_0
 {
@@ -18,40 +19,25 @@ namespace wixrest.v2_0
          */
         public const string VARIATION_DISPLAY_TYPE_HIDDEN = "hidden";
 
-        public Variation(IDictionary<string, string> title, string tagId, int minNumAllowed, int maxNumAllowed,
-            IDictionary<string, int> prices, IList<string> defaults, string displayType)
-        {
-            this.title = title;
-            this.tagId = tagId;
-            this.minNumAllowed = minNumAllowed;
-            this.maxNumAllowed = maxNumAllowed;
-            this.prices = prices;
-            this.defaults = defaults;
-            this.displayType = displayType;
-        }
-
-        /** Empty constructor required for initialization from JSON-encoded string. */
-        public Variation() { }
-
         /** The variations's name in various locales, e.g. "sides", "degree of cooking". */
-        public IDictionary<string, string> title = new Dictionary<string, string>();
-
-        /** The set's name, e.g. "drink", "sides". */
-        public string tagId;
+        public WixText title;
 
         /** Minimum number of items to select. */
-        public int? minNumAllowed = 0;
+        public int? minNumAllowed;
 
         /** Maximum number of items to select. */
-        public int? maxNumAllowed = Int32.MaxValue;
+        public int? maxNumAllowed;
 
         /** Items' base prices. Non-referenced items are free by default. */
-        public IDictionary<string, int> prices = new Dictionary<string, int>();
+        public IDictionary<string, int> prices;
+
+        /** item ids. */
+        public IList<string> itemIds;
 
         /** Default selected item ids. */
-        public IList<string> defaults = new List<string>();
+        public IList<string> defaults;
 
         /** Display type for human-readable printing. */
-        public string displayType = VARIATION_DISPLAY_TYPE_CHOICE;
+        public string displayType;
     }
 }

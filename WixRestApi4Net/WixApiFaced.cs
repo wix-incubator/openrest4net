@@ -36,6 +36,9 @@ namespace wixrest.v2_0
             return !string.IsNullOrEmpty(_accessToken);
         }
 
+
+
+        //see http://developers.wixrestaurants.com/Authorization#Retrieving%20a%20Wix%20App%20Instance
         public async Task<string> AuthenticateAsync(string instance)
         {
                 var data = new
@@ -44,7 +47,7 @@ namespace wixrest.v2_0
                 };
 
                 var wixAuthData = await authClient
-                    .Post<WixToken>(ACCESS_TOKEN, data);
+                    .Post<WixToken>(ACCESS_TOKEN, data).ConfigureAwait(false);;
                 _accessToken = wixAuthData.AccessToken;
                 return _accessToken;
         }
@@ -52,36 +55,35 @@ namespace wixrest.v2_0
         public async Task<RestaurantFullInfo> GetRestaurantFullInfo()
         {
             var endpoint = string.Format(RESTAURANT_FULL_ENDPOINT,_restaurantID);
-            var restaurantFullInfo = await apiClient.Get<RestaurantFullInfo>(endpoint);
+            var restaurantFullInfo = await apiClient.Get<RestaurantFullInfo>(endpoint).ConfigureAwait(false);;
             return restaurantFullInfo;
         }
 
         public async Task<Restaurant> GetRestaurantInfo()
         {
             var endpoint = string.Format(RESTAURANT_ENDPOINT,_restaurantID);
-            var restaurantInfo = await apiClient.Get<Restaurant>(endpoint);
+            var restaurantInfo = await apiClient.Get<Restaurant>(endpoint).ConfigureAwait(false);
             return restaurantInfo;
         }
 
         public async Task<Restaurant> SaveRestaurantInfo(Restaurant restaurant)
         {
             var endpoint = string.Format(RESTAURANT_ENDPOINT,_restaurantID);
-            var restaurantInfo = await apiClient.Put<Restaurant>(endpoint,restaurant,_accessToken);
+            var restaurantInfo = await apiClient.Put<Restaurant>(endpoint,restaurant,_accessToken).ConfigureAwait(false);
             return restaurantInfo;
         }
 
         public async Task<Menu> GetRestaurantMenu()
         {
             var endpoint = string.Format(MENU_ENDPOINT,_restaurantID);
-            var menu = await apiClient.Get<Menu>(endpoint);
+            var menu = await apiClient.Get<Menu>(endpoint).ConfigureAwait(false);
             return menu;
         }
 
         public async Task<Menu> SaveRestaurantMenu(Menu menu)
         {
             var endpoint = string.Format(MENU_ENDPOINT,_restaurantID);
-            menu.modified = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
-            menu = await apiClient.Put<Menu>(endpoint,menu,_accessToken);
+            menu = await apiClient.Put<Menu>(endpoint,menu,_accessToken).ConfigureAwait(false);
             return menu;
         }
     }
