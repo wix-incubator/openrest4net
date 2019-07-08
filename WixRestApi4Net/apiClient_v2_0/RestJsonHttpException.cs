@@ -10,7 +10,6 @@ namespace wixrest.v2_0
      */
     public class WixHttpException : IOException
     {
-        private readonly HttpStatusCode httpStatusCode;
 
         public WixHttpException(string title,
             string information,

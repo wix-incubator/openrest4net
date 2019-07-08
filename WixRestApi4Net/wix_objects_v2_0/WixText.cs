@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace WixRestApi4Net.wix_objects_v2_0
@@ -15,5 +16,11 @@ namespace WixRestApi4Net.wix_objects_v2_0
     */
     public class WixText:Dictionary<string,string>
     {
+        public override string ToString()
+        {
+            return Values.FirstOrDefault() ?? "Empty";
+        }
     }
+
+ 
 }

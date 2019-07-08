@@ -15,6 +15,7 @@ namespace wixrest.v2_0
         public string floor;
         public string entrance;
         public string comment;
+        public string onArrival;
         public LatLng latLng;
 
         /**

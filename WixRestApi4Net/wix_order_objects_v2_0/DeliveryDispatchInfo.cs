@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
 
 namespace wixrest.v2_0
 {
@@ -8,15 +7,16 @@ namespace wixrest.v2_0
      * Information regarding a delivery destination: type, area, requirements, etc.
      * @author DL
      */
-    public class PickupDispatchInfo:DispatchInfo
+    public class DeliveryDispatchInfo : DispatchInfo
     {
+        public Area area;
 
-      
+        public const string TYPE = Delivery.DELIVERY_TYPE_DELIVERY;
 
-        public PickupDispatchInfo() : base(TYPE)
+        public DeliveryDispatchInfo() : base(TYPE)
         {
         }
 
-        public const string TYPE = Delivery.DELIVERY_TYPE_TAKEOUT;
+     
     }
 }

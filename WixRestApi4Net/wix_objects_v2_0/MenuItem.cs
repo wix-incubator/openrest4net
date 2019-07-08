@@ -17,7 +17,7 @@ namespace wixrest.v2_0
 
         public int? price;
 
-        public WixText title;
+
         public Properties properties;
         public List<string> labels;
         public List<Variation> variations;

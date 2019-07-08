@@ -42,12 +42,18 @@ namespace wixrest.v2_0
             try
             {
                 var response = await restJsonClient.PutAsync<T>(new Uri(_baseUri, endpointUri), token, obj);
+
                 await VerifyResponse(response);
-                return await response.Content.ReadAsAsync<T>(new List<MediaTypeFormatter>() { restJsonClient.Formatter });
+                return await response.Content.ReadAsAsync<T>(new List<MediaTypeFormatter>() {restJsonClient.Formatter});
             }
             catch (WixHttpException e)
             {
-                Trace.WriteLine($"api Exception. request:{JsonConvert.SerializeObject(obj)},\n error:{e}");
+                Trace.WriteLine($"api Exception. request:{JsonConvert.SerializeObject(obj,restJsonClient.Formatter.SerializerSettings)},\n error:{e}");
+                throw;
+            }
+            catch (Exception ex)
+            {
+                Trace.WriteLine($"api Exception. request:{JsonConvert.SerializeObject(obj,restJsonClient.Formatter.SerializerSettings)},\n error:{ex}");
                 throw;
             }
         }
@@ -80,9 +86,13 @@ namespace wixrest.v2_0
                             SupportedMediaTypes =
                             {
                                 new MediaTypeHeaderValue("application/problem+json"),
+                                new MediaTypeHeaderValue("application/json"),
+
                             }
                         }
                     });
+
+
 
                     //var error = errorObj.ToObject<WixError>();
 
@@ -94,15 +104,17 @@ namespace wixrest.v2_0
                 }
                 catch (WixHttpException ex)
                 {
+                    Debug.WriteLine(ex.ToString());
                     throw;
                 }
                 catch (Exception ex)
                 {
-                    
+                    var aa = await response.Content.ReadAsStringAsync();
                     var wixEx =  new WixHttpException("Api Error",
                         await response.Content.ReadAsStringAsync(),
                         response.StatusCode,
-                        response.EnsureSuccessStatusCode().ReasonPhrase,ex);
+                        "",ex);
+                    Debug.WriteLine(wixEx.ToString());
                     throw wixEx;
                 }
             }
