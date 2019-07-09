@@ -36,7 +36,7 @@ namespace wixrest.v2_0
 
         public Order(string id, IDictionary<string, string> externalIds, string restaurantId, string locale,
             IList<OrderItem> orderItems, string comment, int price, Delivery delivery, Contact contact, IList<Payment> payments,
-            int takeoutPacks, IList<Charge> charges, long created, long received, long modified, long submitAt,
+            int takeoutPacks, IList<OrderCharge> charges, long created, long received, long modified, long submitAt,
             User user, ClubMember clubMember, string status, string shareToken, string affiliate,
             string source, string platform, bool legacyHierarchy, Properties properties, IList<LogEntry> log)
         {
@@ -51,7 +51,7 @@ namespace wixrest.v2_0
             this.contact = contact;
             this.payments = payments;
             this.takeoutPacks = takeoutPacks;
-            this.charges = charges;
+            this.orderCharges = charges;
             this.created = created;
             this.received = received;
             this.modified = modified;
@@ -107,10 +107,10 @@ namespace wixrest.v2_0
         public int? takeoutPacks;
 
         /**
-	     * Extra charges or discounts associated with the order, ordered by priority
-	     * in descending order.
-	     */
-        public IList<Charge> charges = new List<Charge>();
+ * Extra charges or discounts associated with the order, ordered by priority
+ * in descending order.
+ */
+        public IList<OrderCharge> orderCharges = new List<OrderCharge>();
 
         /** The order's creation timestamp. */
         public long? created;

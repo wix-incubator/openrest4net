@@ -73,8 +73,12 @@ namespace wixrest.v2_0
                     return typeof(True);
                 case False.TYPE:
                     return typeof(False);
-                case OrderDeliveryCondition.TYPE:
-                    return typeof(OrderDeliveryCondition);
+                case OrderDeliveryTimeCondition.TYPE:
+                    return typeof(OrderDeliveryTimeCondition);
+                case OrderDeliveryTypeCondition.TYPE:
+                    return typeof(OrderDeliveryTypeCondition);
+                case OrderPlatform.TYPE:
+                    return typeof(OrderPlatform);
                 case Max.TYPE:
                     return typeof(Max);
                 case Min.TYPE:
@@ -87,6 +91,15 @@ namespace wixrest.v2_0
                     return typeof(Value);
                 case Tip.TYPE:
                     return typeof(Tip);
+                case OrderItemsPrice.TYPE:
+                    return typeof(OrderItemsPrice);
+                case Multiply.TYPE:
+                    return typeof(Multiply);
+                case Exclude.TYPE:
+                    return typeof(Exclude);
+                case CountItems.TYPE:
+                    return typeof(CountItems);
+
             }
 
             throw new ApplicationException(String.Format("Unknown object type: {0}", typeStr));

@@ -45,6 +45,20 @@ namespace wixrest.v2_0
         public const string TYPE = "order_delivery_time";
     }
 
+    public class OrderPlatform:Condition
+    {
+        public OrderPlatform():base(TYPE){}
+        public const string TYPE = "order_platform";
+        public string platform;
+    }
+
+    public class OrderItemsPrice:Condition
+    {
+        public OrderItemsPrice():base(TYPE){}
+        public const string TYPE = "order_items_price";
+        public int? min;
+    }
+
     public class OrderDeliveryTypeCondition:Condition
     {
         public OrderDeliveryTypeCondition():base(TYPE){}

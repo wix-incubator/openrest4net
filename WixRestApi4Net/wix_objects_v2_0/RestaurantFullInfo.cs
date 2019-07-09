@@ -14,10 +14,7 @@ namespace wixrest.v2_0
     
         /** The menu. */
         public Menu menu;
-    
-        /** The charges. */
-        public IList<Charge> charges;
-    
+
         /** The distributor. */
         public Distributor distributor;
     

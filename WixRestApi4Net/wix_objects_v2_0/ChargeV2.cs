@@ -13,9 +13,9 @@ namespace wixrest.v2_0
      */
     public class ChargeV2:MenuBaseObject
     {
-        public ChargeV2(string type)
+        public ChargeV2(string typeOf)
         {
-            type = base.type;
+            type = typeOf;
         }
         public int? price;
         public string state;
