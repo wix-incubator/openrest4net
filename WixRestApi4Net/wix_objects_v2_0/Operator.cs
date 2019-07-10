@@ -7,10 +7,7 @@ namespace WixRestApi4Net.wix_objects_v2_0
 {
     public class Operator:WixRestObject
     {
-        public Operator(string type_of)
-        {
-            type = type_of;
-        }
+        public Operator(string type):base(type){}
         public IList<Operator> operators;
         public OperatorItems items;
         public OperatorItems charges;
@@ -72,7 +69,7 @@ namespace WixRestApi4Net.wix_objects_v2_0
     public class OperatorItems:WixRestObject
     {
         public OperatorItems(string type):base(type){}
-        public IList<string> ids;
+        public IList<string> ids = new List<string>();
     }
 
 

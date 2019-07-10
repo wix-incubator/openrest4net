@@ -39,14 +39,16 @@ namespace wixrest.v2_0
                 },
                 NullValueHandling = NullValueHandling.Ignore
             };
+
+            Formatter = new JsonMediaTypeFormatter()
+            {
+                SerializerSettings = Settings
+            };
         }
 
         public static readonly JsonSerializerSettings Settings;
-        
-        public readonly JsonMediaTypeFormatter Formatter = new JsonMediaTypeFormatter()
-        {
-            SerializerSettings = Settings
-        };
+
+        public static readonly JsonMediaTypeFormatter Formatter;
 
         public async Task<HttpResponseMessage> GetAsync<T>(Uri uri)
         {

@@ -9,13 +9,15 @@ namespace wixrest.v2_0
      * An extra charge or a discount associated with an order.
      * Examples: delivery charge, state tax, discount coupon.
      * 
-     * @author DL
      */
-    public class ChargeV2:MenuBaseObject
+    public abstract class ChargeV2:MenuBaseObject,IWixTypeObject
     {
+        public const string OPERATIONAL_STATE = "operational"; 
+        public const string DELETED_STATE = "closed"; 
         public ChargeV2(string typeOf)
         {
             type = typeOf;
+            state = OPERATIONAL_STATE;
         }
         public int? price;
         public string state;
@@ -23,7 +25,6 @@ namespace wixrest.v2_0
         [JsonProperty("operator") ]
         public Operator @operator;
 
-        public static string TAX_TYPE;
     }
 
     public class Tip : ChargeV2
@@ -42,5 +43,20 @@ namespace wixrest.v2_0
     {
         public Discount():base(TYPE){}
         public const string TYPE = "discount";
+
+    }
+
+    public class CloseDiscount : Discount
+    {
+        public CloseDiscount(ChargeV2 dis)
+        {
+            id = dis.id;
+            title = dis.title;
+            description = dis.description;
+            state = DELETED_STATE;
+            displayCondition = new False();
+            condition = new False();
+            @operator = new Value(){value = 0};
+        }
     }
 }

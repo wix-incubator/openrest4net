@@ -20,7 +20,9 @@ namespace wixrest.v2_0
 
         public override bool CanConvert(Type objectType)
         {
-            return typeof(WixRestObject).IsAssignableFrom(objectType);
+            return typeof(WixRestObject).IsAssignableFrom(objectType) ||
+                   typeof(IWixTypeObject).IsAssignableFrom(objectType);
+
         }
 
         public override object ReadJson(JsonReader reader, Type objectType,
@@ -99,10 +101,18 @@ namespace wixrest.v2_0
                     return typeof(Exclude);
                 case CountItems.TYPE:
                     return typeof(CountItems);
+                case Tax.TYPE:
+                    return typeof(Tax);
+                case Discount.TYPE:
+                    return typeof(Discount);
 
             }
 
             throw new ApplicationException(String.Format("Unknown object type: {0}", typeStr));
         }
+    }
+
+    public interface IWixTypeObject
+    {
     }
 }

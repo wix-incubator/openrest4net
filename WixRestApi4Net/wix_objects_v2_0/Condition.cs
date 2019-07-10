@@ -7,12 +7,9 @@ namespace wixrest.v2_0
     public class Condition:WixRestObject
     {
         public IList<Condition> conditions;
-        public Availability availability;
+        public Availability availability = new Availability();
 
-        public Condition(string typeOf)
-        {
-            type = typeOf;
-        }
+        public Condition(string type):base(type){}
     }
 
     public class And:Condition
@@ -50,6 +47,38 @@ namespace wixrest.v2_0
         public OrderPlatform():base(TYPE){}
         public const string TYPE = "order_platform";
         public string platform;
+        /** Web (desktop browser). */
+        public const string web = "web";
+
+        /** Mobile-web (mobile browser). */
+        public const string mobileWeb = "mobileweb";
+
+        /** Android app. */
+        public const string android = "android";
+
+        /** iOS app. */
+        public const string ios = "ios";
+
+        /** Facebook tab. */
+        public const string facebook = "facebook";
+
+        /** Call center. */
+        public const string callcenter = "callcenter";
+
+        /** Android kiosk. */
+        public const string androidKiosk = "kiosk.android";
+
+        /** iOS kiosk. */
+        public const string iosKiosk = "kiosk.ios";
+
+        /** Facebook Messenger bot. */
+        public const string facebookMessenger = "com.messenger";
+
+        /** Telegram bot. */
+        public const string telegram = "org.telegram";
+
+        /** Slack bot. */
+        public const string slack = "com.slack";
     }
 
     public class OrderItemsPrice:Condition
